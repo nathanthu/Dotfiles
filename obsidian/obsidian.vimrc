@@ -55,6 +55,10 @@ nmap <C-,> :toggleRightSideBar<CR>
 exmap focusFileExplorer obcommand file-explorer:open
 nmap <C-h> :focusFileExplorer<CR>
 
+" Reveal the current file in the file explorer 
+exmap revealActiveFile obcommand file-explorer:reveal-active-file
+nmap <Space>rv :revealActiveFile<CR>
+
 " ----------------------------------------------------------------------------
 " Editor Features
 " ----------------------------------------------------------------------------
