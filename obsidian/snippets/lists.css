@@ -5,7 +5,7 @@
 
 .is-live-preview .list-bullet,
 .markdown-reading-view ul.has-list-bullet li::marker {
-    color: var(--list-marker-color);
+    color: var(--text-normal);
     content: "- ";
 }
 
