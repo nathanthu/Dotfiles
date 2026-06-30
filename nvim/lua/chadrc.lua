@@ -17,7 +17,6 @@ M.base46 = {
 M.nvdash = {
 	load_on_startup = true,
 
-	header = { "" },
 	-- header = {
 	-- 	"⠀⠀⠀⣢⣿⣿⣿⠃⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠈⠊⡄⠀⠀⢡⡇⠀⠀⠀⠀⠀⠀⠈⠀⣶⣦⠀⠀⠀⠀⢹⣿⣿⣿⣷⡈⢀⠜⠀",
 	-- 	"⠀⠀⢠⣾⣿⡿⡏⠰⠁⠀⢀⠄⠀⠀⠀⢠⡾⠀⠀⠀⠀⠀⠈⠀⠀⠈⠀⠀⢀⠀⠀⠀⢠⡀⢀⢹⣿⣧⠘⡆⡆⢸⣿⣿⣿⣿⢃⠔⠊⠀",
@@ -35,26 +34,13 @@ M.nvdash = {
 	-- 	"                                                  ",
 	-- 	"                                                  ",
 	-- },
-
+	--    buttons = {}
+	--
+	header = { "" },
 	buttons = {
 		{ txt = "To realize that all your life - you know, all your love, all your hate, all your", no_gap = true },
 		{ txt = " memories, all your pain - it was all the same thing. It was all the same dream,", no_gap = true },
 		{ txt = "    a dream that you had inside a locked room, a dream about being a person.", no_gap = true },
-		-- { txt = "         And like a lot of dreams, there's a monster at the end of it.", no_gap = true },
-		-- Plugin loading time
-		-- { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
-		--
-		-- {
-		-- 	txt = function()
-		-- 		local stats = require("lazy").stats()
-		-- 		local ms = math.floor(stats.startuptime) .. " ms"
-		-- 		return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
-		-- 	end,
-		-- 	hl = "NvDashFooter",
-		-- 	no_gap = true,
-		-- },
-		--
-		-- { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
 	},
 }
 
@@ -68,12 +54,12 @@ M.term = {
 
 M.ui = {
 	telescope = { style = "bordered" },
-	statusline = {
-		theme = "minimal",
-		separator_style = "default",
-		order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
-		modules = {},
-	},
+	-- statusline = {
+	-- 	theme = "minimal",
+	-- 	separator_style = "default",
+	-- 	order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+	-- 	modules = {},
+	-- },
 }
 
 M.cheatsheet = {
