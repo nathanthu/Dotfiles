@@ -42,33 +42,11 @@ return {
 		cmd = "CopilotChat",
 	},
 
-	{
-		"sphamba/smear-cursor.nvim",
-		event = "VimEnter",
-		opts = {},
-	},
-
 	-- {
-	-- 	"MeanderingProgrammer/render-markdown.nvim",
-	-- 	dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
-	-- 	opts = require("configs.render-markdown"),
-	-- 	lazy = false,
+	-- 	"sphamba/smear-cursor.nvim",
+	-- 	event = "VimEnter",
+	-- 	opts = {},
 	-- },
-
-	{
-		"mistweaverco/kulala.nvim",
-		keys = {
-			{ "<leader>rs", desc = "Send request" },
-			{ "<leader>ra", desc = "Send all requests" },
-			{ "<leader>rb", desc = "Open scratchpad" },
-		},
-		ft = { "http", "rest" },
-		opts = {
-			global_keymaps = true,
-			global_keymaps_prefix = "<leader>r",
-			kulala_keymaps_prefix = "",
-		},
-	},
 
 	{
 		"folke/flash.nvim",
