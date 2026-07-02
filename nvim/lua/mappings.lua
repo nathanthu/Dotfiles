@@ -30,6 +30,8 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true }) -- move
 
 map("n", "<A-w>", ":bd!<Cr>", { noremap = true, silent = true }) -- close buffer
 
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" }) -- Open code action
+
 map("n", "<leader>co", ":CopilotChat<Cr>", { noremap = true, silent = true }) -- Open Copilot chat
 map("n", "<leader>cs", ":Copilot status<Cr>", { noremap = true, silent = true }) -- Show Copilot status / activate
 map("n", "<leader>ce", ":Copilot enable<Cr>", { noremap = true, silent = true }) -- Enable Copilot
