@@ -1,7 +1,10 @@
 /* Gives more space to the text in editor mode and centers it */
 .markdown-source-view,
 .markdown-preview-view {
+    /* Fullscreen */
     max-width: 55vw;
+    /* Dual split */
+    /* max-width: 80vw; */
     margin: auto; 
 }
 
