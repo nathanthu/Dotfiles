@@ -8,7 +8,7 @@ local M = {}
 local dark = vim.fn.system("gsettings get org.gnome.desktop.interface color-scheme"):match("dark")
 
 M.base46 = {
-	theme = dark and "flexoki" or "flexoki-light",
+	theme = dark and "flexoki" or "flexoki",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
@@ -55,13 +55,19 @@ M.term = {
 }
 
 M.ui = {
-	telescope = { style = "bordered" },
-	-- statusline = {
-	-- 	theme = "minimal",
-	-- 	separator_style = "default",
-	-- 	order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
-	-- 	modules = {},
-	-- },
+	telescope = {
+        style = "bordered"
+    },
+	statusline = {
+		-- theme = "minimal",
+		-- separator_style = "default",
+
+        -- default is this:
+		-- order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+		order = { "mode", "file", "git", "diagnostics", "%=", "lsp_msg", }
+
+		-- modules = {},
+	},
 }
 
 M.cheatsheet = {
