@@ -26,6 +26,12 @@ map({ "n", "v" }, "k", function()
 	return vim.v.count == 0 and "gk" or "k"
 end, { expr = true, silent = true, desc = "Up (display line)" })
 
+map("n", "<leader>n", function()
+	local on = vim.wo.number or vim.wo.relativenumber
+	vim.wo.number = not on
+	vim.wo.relativenumber = not on
+end, { silent = true, desc = "Toggle line numbers" })
+
 -- ┌──────────────────────────────────────────────────────────────────────────┐
 -- │  KEEP THE CURSOR CENTERED                                                │
 -- └──────────────────────────────────────────────────────────────────────────┘
