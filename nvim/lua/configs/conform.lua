@@ -3,6 +3,7 @@ local options = {
 		lua = { "stylua" },
 		c = { "clang-format" },
         json = { "prettier" },
+        python = { "ruff" },
 	},
 
 	-- format_on_save = {
