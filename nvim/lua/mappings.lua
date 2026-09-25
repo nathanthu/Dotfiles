@@ -8,7 +8,7 @@
 -- ║  `:verbose nmap <key>` when you're wondering where something came from.  ║
 -- ╚══════════════════════════════════════════════════════════════════════════╝
 
-require "nvchad.mappings"
+require("nvchad.mappings")
 
 local map = vim.keymap.set
 
@@ -31,6 +31,8 @@ map("n", "<leader>n", function()
 	vim.wo.number = not on
 	vim.wo.relativenumber = not on
 end, { silent = true, desc = "Toggle line numbers" })
+
+map("i", "jj", "<ESC>", { silent = true, desc = "Escape insert mode" }) -- map "hh" to ESC in insert mode
 
 -- ┌──────────────────────────────────────────────────────────────────────────┐
 -- │  KEEP THE CURSOR CENTERED                                                │
@@ -67,10 +69,9 @@ map("n", "<Left>", "<Nop>", { silent = true, desc = "Disabled — use hjkl" })
 map("n", "<Right>", "<Nop>", { silent = true, desc = "Disabled — use hjkl" })
 
 -- Arrows stay dead everywhere else, to keep hjkl muscle memory honest.
-for _, key in ipairs { "<Up>", "<Down>", "<Left>", "<Right>" } do
+for _, key in ipairs({ "<Up>", "<Down>", "<Left>", "<Right>" }) do
 	map({ "v", "i" }, key, "<Nop>", { silent = true, desc = "Disabled — use hjkl" })
 end
-
 
 -- ┌──────────────────────────────────────────────────────────────────────────┐
 -- │  COPILOT                                                                 │
@@ -110,11 +111,11 @@ map("n", "<leader>re", "<cmd>registers<CR>", { silent = true, desc = "Show regis
 -- └──────────────────────────────────────────────────────────────────────────┘
 
 map("n", "<A-v>", function()
-	require("nvchad.term").new { pos = "vsp" }
+	require("nvchad.term").new({ pos = "vsp" })
 end, { desc = "Terminal: new vertical" })
 
 map("n", "<leader>to", function()
-	require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+	require("nvchad.term").toggle({ pos = "vsp", id = "vtoggleTerm" })
 end, { desc = "Terminal: toggle vertical" })
 
 map("t", "<ESC>", "<C-\\><C-N>", { desc = "Terminal: leave insert mode" })
@@ -134,7 +135,7 @@ map("t", "<ESC>", "<C-\\><C-N>", { desc = "Terminal: leave insert mode" })
 map("n", "q", function()
 	if vim.bo.buftype == "terminal" then
 		vim.schedule(function()
-			require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+			require("nvchad.term").toggle({ pos = "vsp", id = "vtoggleTerm" })
 		end)
 		return ""
 	end
