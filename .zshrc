@@ -133,8 +133,21 @@ alias v='nvim'
 alias c='clear'
 alias e='exit'
 alias sd='sudo !!'
-alias mdpdf='pandoc -f markdown+hard_line_breaks --lua-filter=stacked-headings.lua -V fontsize=12pt --shift-heading-level-by=-1 -N -V geometry:margin=1in -H ~/.pandoc/headers/later-styling.tex -o output.pdf'
 alias lz='lazygit'
+
+# Convertit un fichier Markdown en PDF du même nom (ex. : mdpdf doc.md --toc)
+mdpdf() {
+  local f=$1; shift
+  pandoc -f markdown+hard_line_breaks --lua-filter=stacked-headings.lua \
+    -V fontsize=12pt --shift-heading-level-by=-1 -N \
+    -V geometry:margin=1in -H ~/.pandoc/headers/later-styling.tex \
+    -o "${f:r}.pdf" "$f" "$@"
+}
+
+# Comme mdpdf, puis ouvre le PDF dans zathura si la conversion a réussi
+mdpdfz() {
+  mdpdf "$@" && zathura "${1:r}.pdf"
+}
 
 # Shell integrations
 eval "$(fzf --zsh)"
