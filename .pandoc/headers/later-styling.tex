@@ -1,6 +1,5 @@
 \usepackage{xcolor}
 \usepackage{framed}
-\usepackage{inconsolata}
 \definecolor{shadecolor}{RGB}{240,240,240}
 \definecolor{inlinecodecolor}{RGB}{240,240,240}
 \setlength{\FrameSep}{10pt}
@@ -12,8 +11,6 @@
 }{}
 \makeatother
 
-\let\oldShaded\Shaded
-\let\endoldShaded\endShaded
 \renewenvironment{Shaded}{%
   \vspace{1em}%
   \begin{snugshade}%
@@ -22,17 +19,27 @@
   \vspace{1em}%
 }
 
-\renewcommand{\ttfamily}{\fontfamily{zi4}\fontsize{9pt}{11pt}\selectfont}
-\usepackage{csquotes}
-
 \let\oldtexttt\texttt
 \renewcommand{\texttt}[1]{%
   \colorbox{inlinecodecolor}{\oldtexttt{\,#1\,}}%
 }
-\usepackage{csquotes}
+
 \renewenvironment{quote}{%
     \list{}{\leftmargin=2em\rightmargin=2em}%
     \item\relax\itshape
 }{%
     \endlist
 }
+
+\usepackage{titlesec}
+% Add spacing before and after headings
+%                             left  above   below
+\titlespacing*{\section}      {0pt}{3em}  {2.5em}
+\titlespacing*{\subsection}   {0pt}{2.5em}{2em}
+\titlespacing*{\subsubsection}{0pt}{2em}  {1.5em}
+\titlespacing*{\paragraph}    {0pt}{1.75em}{1.25em}
+\titlespacing*{\subparagraph} {0pt}{1.5em}{1em}
+
+% Keep #### and ##### on their own line
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}[hang]{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
