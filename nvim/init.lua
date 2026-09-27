@@ -42,10 +42,12 @@ vim.api.nvim_create_autocmd("UILeave", {
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
+-- warning: commented because it does a glitch where it gives focus to the notification and breaks my flow:
+--
 -- enable the new ui2, in pcall because it will probably get it's name changed from _core to core
-pcall(function()
-	require("vim._core.ui2").enable { enable = true }
-end)
+-- pcall(function()
+-- 	require("vim._core.ui2").enable { enable = true }
+-- end)
 
 require "options"
 require "nvchad.autocmds"
