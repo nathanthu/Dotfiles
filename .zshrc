@@ -144,10 +144,30 @@ mdpdf() {
     -o "${f:r}.pdf" "$f" "$@"
 }
 
-# Comme mdpdf, puis ouvre le PDF dans zathura si la conversion a réussi
+# Comme mdpdf, puis ouvre le PDF dans zathura (sans bloquer le terminal) si la conversion a réussi
 mdpdfz() {
-  mdpdf "$@" && zathura "${1:r}.pdf"
+  mdpdf "$@" && zathura "${1:r}.pdf" &!
 }
+
+# Complétion : ne propose que les fichiers .md (et les dossiers, pour naviguer)
+compdef '_files -g "*.md"' mdpdf mdpdfz
+
+# boox : copie un PDF vers ~/boox (synchronisé via Syncthing)
+boox() {
+  [[ -z $1 ]] && { echo "usage: boox fichier.pdf [sous-dossier]"; return 1; }
+  local dest=~/boox/${2:-}
+  mkdir -p "$dest" && cp -- "$1" "$dest"/
+}
+
+# _boox : règles de complétion Tab pour la commande boox
+_boox() {
+  _arguments \
+    '1:fichier PDF:_files -g "*.pdf"' \
+    '2:sous-dossier:_path_files -/ -W $HOME/boox'
+}
+
+# Associe la fonction de complétion _boox à la commande boox
+compdef _boox boox
 
 # Shell integrations
 eval "$(fzf --zsh)"
