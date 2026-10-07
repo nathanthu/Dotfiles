@@ -1,6 +1,10 @@
 {
-  "currentThemeName": "dynamic",
+  "currentThemeName": "custom",
   "currentThemeCategory": "registry",
+  "customThemeFile": "/home/bzbzz/.config/DankMaterialShell/themes/flexoki/theme.json",
+  "registryThemeVariants": {
+    "flexoki": "blue"
+  },
   "cornerRadius": 12,
   "firstDayOfWeek": 1,
   "clockFormat": "24h",
