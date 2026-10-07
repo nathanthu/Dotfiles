@@ -6,6 +6,18 @@ workspace "chat"
 
 window-rule {
     match app-id=r#"^app\.zen_browser\.zen$"#
+    match app-id=r#"^md\.obsidian\.Obsidian$"#
+    match app-id=r#"^org\.signal\.Signal$"#
+    match app-id="^discord$"
+
+    opacity 0.9
+
+    background-effect {
+        blur true
+    }
+}
+window-rule {
+    match app-id=r#"^app\.zen_browser\.zen$"#
     open-on-workspace "web"
 }
 window-rule {
@@ -41,4 +53,10 @@ binds {
     Mod+Ctrl+apostrophe { move-column-to-workspace 4; }
     Mod+Ctrl+parenleft  { move-column-to-workspace 5; }
 
+}
+
+layout {
+    focus-ring {
+        width 1
+    }
 }
