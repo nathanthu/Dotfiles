@@ -1,0 +1,44 @@
+workspace "web"
+workspace "nvim"
+workspace "notes"
+workspace "term"
+workspace "chat"
+
+window-rule {
+    match app-id=r#"^app\.zen_browser\.zen$"#
+    open-on-workspace "web"
+}
+window-rule {
+    match app-id="^nvim$"
+    open-on-workspace "nvim"
+}
+window-rule {
+    match app-id=r#"^md\.obsidian\.Obsidian$"#
+    open-on-workspace "notes"
+}
+window-rule {
+    match app-id="^kitty$"
+    open-on-workspace "term"
+}
+window-rule {
+    match app-id=r#"^org\.signal\.Signal$"#
+    match app-id="^discord$"
+    open-on-workspace "chat"
+}
+
+binds {
+    Mod+E hotkey-overlay-title="Kitty (nvim)" { spawn "kitty" "--class" "nvim"; }
+
+    Mod+ampersand  { focus-workspace 1; }
+    Mod+eacute     { focus-workspace 2; }
+    Mod+quotedbl   { focus-workspace 3; }
+    Mod+apostrophe { focus-workspace 4; }
+    Mod+parenleft  { focus-workspace 5; }
+
+    Mod+Ctrl+ampersand  { move-column-to-workspace 1; }
+    Mod+Ctrl+eacute     { move-column-to-workspace 2; }
+    Mod+Ctrl+quotedbl   { move-column-to-workspace 3; }
+    Mod+Ctrl+apostrophe { move-column-to-workspace 4; }
+    Mod+Ctrl+parenleft  { move-column-to-workspace 5; }
+
+}
