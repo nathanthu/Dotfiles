@@ -1,0 +1,17 @@
+/* Sidebars (file tree, their tab/icon header) and ribbon use the same
+   background as the editor instead of Minimal's --background-secondary */
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split,
+.workspace-ribbon,
+.workspace-drawer {
+    --background-secondary: var(--background-primary);
+    --background-secondary-alt: var(--background-primary);
+    background-color: var(--background-primary);
+}
+
+.mod-left-split .workspace-tab-header-container,
+.mod-right-split .workspace-tab-header-container,
+.mod-left-split .workspace-leaf-content,
+.mod-right-split .workspace-leaf-content {
+    background-color: var(--background-primary);
+}
