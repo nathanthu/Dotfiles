@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
-key="org.gnome.desktop.interface color-scheme"
-if gsettings get $key | grep -q dark; then
-  gsettings set $key prefer-light
+# Bascule clair/sombre dans DMS et change le fond d'écran en conséquence.
+
+LIGHT="$HOME/pic/wallpapers/monet_waterlilies.jpg"
+DARK="$HOME/pic/wallpapers/monet_night_bloody.jpg"
+
+mode=$(dms ipc call theme toggle)
+
+if [[ "$mode" == "dark" ]]; then
+    dms ipc call wallpaper set "$DARK"
 else
-  gsettings set $key prefer-dark
+    dms ipc call wallpaper set "$LIGHT"
 fi
-nvim --headless "+lua require('base46').load_all_highlights()" +qa 2>/dev/null
