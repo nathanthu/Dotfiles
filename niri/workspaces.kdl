@@ -1,14 +1,14 @@
+// Defines the workspaces, order matters, making them (1), (2), (3), (4), (5) respectively
 workspace "web"
 workspace "nvim"
 workspace "notes"
 workspace "term"
 workspace "chat"
 
+// Adds blur to all windows, kitty handles its blur by itself
 window-rule {
-    match app-id=r#"^app\.zen_browser\.zen$"#
-    match app-id=r#"^md\.obsidian\.Obsidian$"#
-    match app-id=r#"^org\.signal\.Signal$"#
-    match app-id="^discord$"
+    exclude app-id="^kitty$"
+    exclude app-id="^nvim$"
 
     opacity 0.85
 
@@ -16,22 +16,27 @@ window-rule {
         blur true
     }
 }
+// Forces zen-browser to open on the web workspace (1)
 window-rule {
     match app-id=r#"^app\.zen_browser\.zen$"#
     open-on-workspace "web"
 }
+// Forces nvim to open on the nvim workspace (2)
 window-rule {
     match app-id="^nvim$"
     open-on-workspace "nvim"
 }
+// Forces Obsidian to open on the notes workspace (3)
 window-rule {
     match app-id=r#"^md\.obsidian\.Obsidian$"#
     open-on-workspace "notes"
 }
+// Forces kitty to open on the term workspace (4)
 window-rule {
     match app-id="^kitty$"
     open-on-workspace "term"
 }
+// Forces Signal and Discord to open on the chat workspace (5)
 window-rule {
     match app-id=r#"^org\.signal\.Signal$"#
     match app-id="^discord$"
@@ -40,6 +45,7 @@ window-rule {
 
 binds {
     Mod+E hotkey-overlay-title="Kitty (nvim)" { spawn "kitty" "--class" "nvim"; }
+    Mod+A hotkey-overlay-title="Opacité on/off" { toggle-window-rule-opacity; }
 
     Mod+ampersand  { focus-workspace 1; }
     Mod+eacute     { focus-workspace 2; }

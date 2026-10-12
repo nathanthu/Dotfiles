@@ -11,6 +11,7 @@
   "controlCenterShowMicPercent": true,
   "appIdSubstitutions": [],
   "weatherEnabled": false,
+  "networkPreference": "wifi",
   "cursorSettings": {
     "theme": "System Default",
     "size": 24,
