@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Tab JK",
+  "version": "1.0",
+  "browser_specific_settings": { "gecko": { "id": "tab-jk@local" } },
+  "background": { "scripts": ["background.js"] },
+  "commands": {
+    "next-tab": { "suggested_key": { "default": "Ctrl+J" }, "description": "Next tab" },
+    "prev-tab": { "suggested_key": { "default": "Ctrl+K" }, "description": "Previous tab" }
+  }
+}
