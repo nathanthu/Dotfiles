@@ -10,11 +10,11 @@ window-rule {
     exclude app-id="^kitty$"
     exclude app-id="^nvim$"
 
-    opacity 0.85
-
-    background-effect {
-        blur true
-    }
+    // opacity 0.85
+    //
+    // background-effect {
+    //     blur true
+    // }
 }
 // Forces zen-browser to open on the web workspace (1)
 window-rule {
@@ -30,11 +30,6 @@ window-rule {
 window-rule {
     match app-id=r#"^md\.obsidian\.Obsidian$"#
     open-on-workspace "notes"
-}
-// Forces kitty to open on the term workspace (4)
-window-rule {
-    match app-id="^kitty$"
-    open-on-workspace "term"
 }
 // Forces Signal and Discord to open on the chat workspace (5)
 window-rule {
